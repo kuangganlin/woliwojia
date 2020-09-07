@@ -1,0 +1,15 @@
+@import "../style.wxss";
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.icon image{ width: 42rpx; height: 42rpx; margin: 10rpx}
+
+.list_03{ font-size: 28rpx; line-height: 40rpx; padding: 30rpx 5%; border-bottom: 1px solid #eef1f7; background: #fff;}
+
+
+.btn_big01{ background: #fff; border-top: 1px solid #eef1f7; text-align: center; line-height: 92rpx; position: absolute; bottom: 0; font-size: 34rpx; width: 100%;}
+.btn_big01 image{ width: 50rpx; height: 50rpx;}

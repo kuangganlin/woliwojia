@@ -1,0 +1,38 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.surc2{ position: absolute; line-height: 88rpx; padding-left: 5%; font-size: 30rpx;z-index: 100; width: 95%;}
+.surc2 image{ width: 40rpx;height: 40rpx}
+.surcen{float:left;
+position:relative;
+margin-left:20rpx;
+}
+.surcen input {
+position:absolute;
+top:18rpx;
+left:50rpx;
+
+
+}
+.surcen image{width:421rpx;
+height:65rpx;
+}
+

@@ -1,0 +1,7 @@
+@import "../style.wxss";
+.picker{ float: right; text-align: right; width: 55%}
+.btn_04{background: #59a5f1; }
+.list .phototwo{margin: 30rpx 0 30rpx 30rpx;float: left; position: relative;height: 200rpx;}
+.list .phototwo .close{ position: absolute; right: 20rpx}
+.list .phototwo .close image{width: 20rpx}
+.list .phototwo image{ width: 210rpx; height: 200rpx;} video{ width: 210rpx; height: 163rpx;} 

@@ -1,0 +1,51 @@
+<view class="body">
+   <view class="main">
+      <view class='list_arrow clearfix'>
+         <view class='float-left width03'>
+             <view class='text_34'>范冰冰  18988888888  </view>
+              <view>重庆市江北区观音桥。。。。。。</view> 
+              
+          </view>
+          <image src='../../assets/images/arrow_04.png' mode='widthFix' style='margin-top:29rpx'></image>
+      </view>
+
+       <view class='list_box margin_both3'>
+          <view class='list_arrow'>
+               预约时间 <image src='../../assets/images/arrow_04.png' mode='widthFix'></image><text>10：30 —14：30</text>
+          </view>
+      </view>
+
+     <view class='list_box'>
+
+      <view class='index_list clearfix'>
+          <view class='index_listleft'><image src='../../assets/images/tup_18.jpg'></image></view>
+          <view class='index_listright'>
+               <view class='text_30'>重庆家电维修服务</view>
+               <view class='star'><image src='../../assets/images/star_03.jpg'></image><image src='../../assets/images/star_03.jpg'></image><image src='../../assets/images/star_03.jpg'></image><image src='../../assets/images/star_03.jpg'></image><image src='../../assets/images/star_04.jpg'></image></view>
+               <view><text class='text_38 text_red'>￥68</text>  <text class='btn01 margin_both4'>定金</text></view>
+               <view class='color_888'>已售 234 <view class='float-right'>x1</view></view>
+          </view>
+      </view>
+      <view class='list'>支付总价： <text class='text_red text_50'>￥100</text></view>
+
+    </view>
+
+     <view class='list_box margin_both3'>
+          <view class='list'>
+              <view class='text_30 bottom_border padding01'>备注</view>
+              <view class='margin_both3'>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</view>
+          </view>
+      </view>
+
+      <view class='list_box margin_both3'>
+          <view class='list'>
+              <view class='text_30 bottom_border padding01'>下单需知</view>
+              <view class='margin_both3'>下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知下单需知</view>
+          </view>
+      </view>
+
+<view class='height_z'></view>
+      <view class='but04'>立即支付</view>
+
+</view>
+</view>

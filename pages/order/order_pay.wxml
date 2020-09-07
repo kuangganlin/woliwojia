@@ -1,0 +1,27 @@
+<import src="../../libs/keyboard/keyboard.wxml" />
+<template is="keyboard" data="{{ ...$wux.keyboard }}" />
+
+<view class="body">
+  <view class="main">
+<view class='list07 clearfix'>
+   <view class=' text_34'><view class='float-left'> 订单号：{{orderInfo.order_no}}</view> </view>
+</view>
+
+   <view class='list07 clearfix'>
+
+            <view class=' text_34'><view class='float-left'> 需要支付：</view> <view class='price5 float-left'> ￥{{orderInfo.order_price}}</view> </view>
+
+          </view>
+
+          <view class='margin_top boxcontent'>
+          <view class='title06'>支付方式</view>
+            <radio-group class="radio-group" bindchange="payTypeBindchange">
+              <view class='list07'><image src='../images/icon91.png' mode='widthFix' style='width:40rpx'></image> <label  data-paytype="1" bindtap="selectPayType">  微信支付<text  style='color: #ff5f81; margin:0 0 0rpx 20rpx;'>({{orderInfo.order_price}}元)</text>  <radio class='float-right' value='1' checked="{{payType == 1?true:false }}"></radio></label></view>
+             
+              
+            </radio-group>
+
+          </view>
+      <view class='btn_04' bindtap='payGoodsBindtap' >立即支付</view>
+  </view>
+</view>

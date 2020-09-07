@@ -1,0 +1,40 @@
+<view class="body">
+   <view class="main">
+      <view class='ico clearfix'>
+          <view class='ico_a now'><image src='../../assets/images/icon_03.png' mode='widthFix'></image><view>大家电维修</view></view>
+          <view class='ico_a'><image src='../../assets/images/icon_05.png' mode='widthFix'></image><view>厨卫家电维修</view></view>
+          <view class='ico_a'><image src='../../assets/images/icon_07.png' mode='widthFix'></image><view>生活家电维修</view></view>
+          <view class='ico_a'><image src='../../assets/images/icon_09.png' mode='widthFix'></image><view>家电清洗</view></view>
+      </view>
+       <view class='list_box margin_both3'>
+      <view class='index_list clearfix'>
+          <view class='index_listleft'><image src='../../assets/images/tup_18.jpg'></image></view>
+          <view class='index_listright'>
+               <view class='text_30'>重庆家电维修服务</view>
+               <view class='star'><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_04.png'></image></view>
+               <view><text class='text_38 text_red'>￥68</text>  <text class='btn01 margin_both4'>定金</text></view>
+               <view class='color_888'>已售 234</view>
+          </view>
+      </view>
+       <view class='index_list clearfix'>
+          <view class='index_listleft'><image src='../../assets/images/tup_21.jpg'></image></view>
+          <view class='index_listright'>
+               <view class='text_30'>重庆家电维修服务（预约）</view>
+               <view class='star'><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_04.png'></image></view>
+               <view><text class='btn01'>免费预约</text></view>
+               <view class='color_888'>已售 234</view>
+          </view>
+      </view>
+      <view class='index_list clearfix'>
+          <view class='index_listleft'><image src='../../assets/images/tup_18.jpg'></image></view>
+          <view class='index_listright'>
+               <view class='text_30'>重庆家电维修服务</view>
+               <view class='star'><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_03.png'></image><image src='../../assets/images/star_04.png'></image></view>
+               <view><text class='text_38 text_red'>￥68</text>  <text class='btn01 margin_both4'>定金</text></view>
+               <view class='color_888'>已售 234</view>
+          </view>
+      </view>
+</view>
+      
+</view>
+</view>

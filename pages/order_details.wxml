@@ -1,0 +1,237 @@
+<view class="body">
+  <view class="main">
+
+
+
+    <view class='list_box'>
+      <view class='list'>
+
+        <view class='list'>订单号：{{orderInfo.order_no}}
+          <text class='float-right text_red'>{{orderInfo.order_status_desc}}</text>
+        </view>
+        <view class='clearfix padding01'>
+          <view class='avatar'>
+            <image src='{{orderInfo.goods_info.goods_pic}}'></image>
+          </view>
+          <view class='width05'>
+            <view class='text_28' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{orderInfo.goods_info.goods_name}}</view>
+            <view class='text_30 text_red'>￥{{orderInfo.order_price}}</view>
+            <view class='color_888'>
+              <image src='images/btn_06.png' mode='widthFix' style='width:28rpx;margin-right:5rpx'></image> 预约时间：{{orderInfo.covenant_time}}</view>
+
+            <!--
+                      <view wx:if="{{orderInfo.goods_info.goods_type==0}}" class='color_888'><image src='images/indexg_03.png' mode='widthFix' style='width:28rpx;margin-right:5rpx'></image> 地址：{{orderInfo.user_addr_info.addr_dec}}</view>-->
+            <view wx:if="{{orderInfo.goods_info.goods_type==2}}" data-contact_tel='{{orderInfo.service_user_info.mobile}}' bindtap="phoneCall">维修师傅：{{orderInfo.service_user_info.nickname}}
+              <image src='images/icon2_07.png' mode='widthFix' style='width:50rpx;margin-left:5rpx'></image>
+            </view>
+
+
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class='list_box margin_both3'>
+      <view class='list text_24'>
+        <view>服务方式：上门服务</view>
+
+        <view wx:if="{{orderInfo.goods_info.goods_type==0}}">服务时间：{{orderInfo.covenant_time}}</view>
+        <view wx:if="{{orderInfo.goods_info.goods_type==2}}">服务时间：{{orderInfo.covenant_time}} {{orderInfo.goods_spec_info.spec_item_name}}</view>
+        <view>服务地址：{{orderInfo.user_addr_info.addr_dec}}</view>
+        <view>联系人：{{orderInfo.user_addr_info.contact_name}} {{orderInfo.user_addr_info.contact_tel}}</view>
+        <view wx:if="{{orderInfo.goods_spec_info}}">参数规格：{{orderInfo.goods_spec_info.spec_name}}--{{orderInfo.goods_spec_info.spec_item_name}}</view>
+      </view>
+    </view>
+    <view class='list_box margin_both3'>
+      <view class='list text_24'>
+        <view>订单编号：{{orderInfo.order_no}}</view>
+        <view>下单时间：{{orderInfo.create_time}}</view>
+        <view>订单总价：{{orderInfo.order_price}}元</view>
+      </view>
+    </view>
+
+    <view class='list_box margin_both3' wx:if="{{orderInfo.goods_info.goods_type==2 && orderInfo.service_user_info}}">
+      <view class='list'>
+        <view class='list text_34'>服务师傅</view>
+        <view class='clearfix margin_top'>
+          <view class='avatar2 float-left'>
+            <image src='{{orderInfo.service_user_info.head_pic}}'></image>
+          </view>
+          <view class='float-left margin_left'>
+            <view class='text_28'>{{orderInfo.service_user_info.nickname}}</view>
+            <view class='star'>
+
+              <block wx:if="{{orderInfo.service_user_info.aveg_grade.length > 0}}">
+                <image src='images/star_03.jpg' wx:for="{{orderInfo.service_user_info.aveg_grade}}" wx:key="*this" wx:for-item="aveg_grade_item"></image>
+              </block>
+
+              <block wx:if="{{orderInfo.service_user_info.un_aveg_grade.length > 0}}">
+                <image src='images/star_04.jpg' wx:for="{{orderInfo.service_user_info.un_aveg_grade}}" wx:key="*this" wx:for-item="aveg_grade_item"></image>
+              </block>
+
+
+            </view>
+            <view class='text_24 color_888'>累积服务{{orderInfo.service_user_info.repair_count}}次</view>
+          </view>
+          <view class='float-right' data-contact_tel='{{orderInfo.service_user_info.mobile}}' bindtap="phoneCall">
+            <image src='images/icon2_07.png' mode='widthFix' style='width:60rpx;margin-left:5rpx'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{orderInfo.order_file_list.length > 0}}">
+     <view class='list_box margin_both3'>
+            <view class='list'>
+                <view>维修前照片</view>
+                <view class="clearfix"> 
+                    <block  wx:for="{{orderInfo.order_file_list}}" wx:key="*this" wx:for-item="itemPicUnRepair">
+                    <view class='phototwo '>
+                    <image  style='width:200rpx;height:150rpx;margin:20rpx 10rpx;' data-index='{{index}}' src="{{itemPicUnRepair.file_path}}"></image>
+                    </view>
+                    </block>
+                </view>
+            </view>
+       </view>
+      </block>
+
+     <block wx:if="{{orderInfo.order_file_list_success.length > 0}}">
+     <view class='list_box margin_both3'>
+            <view class='list'>
+                <view>维修后照片</view>
+                <view class="clearfix"> 
+                    <block  wx:for="{{orderInfo.order_file_list_success}}" wx:key="*this" wx:for-item="itemPicRepair">
+                    <view class='phototwo '>
+                    <image  style='width:200rpx;height:150rpx;margin:20rpx 10rpx;' data-index='{{index}}' src="{{itemPicRepair.file_path}}"></image>
+                    </view>
+                    </block>
+                </view>
+            </view>
+       </view>
+      </block>
+      
+
+
+
+
+    <block wx:if="{{orderInfo.order_add_price_list.length > 0}}">
+      <view class='list text_34'>订单价格变动记录
+        <view class='list_box margin_both3' wx:for="{{orderInfo.order_add_price_list}}" wx:key="*this" wx:for-item="orderAddPriceItem">
+
+          <view class='margin_both3' style='font-size:24rpx; height:30px'>
+             <text>类型:</text>
+             <text class='text_red margin_left2'>{{orderAddPriceItem.add_type_val}}</text>
+
+
+            <block wx:if="{{orderAddPriceItem.add_status == 0}}">
+                  <view class='float-right'>
+                      <text class='btn06' data-order_no='{{orderAddPriceItem.order_no}}' bindtap="confirmUserAddOrderPriceBindtap">确认增加费用</text>
+                    </view>
+
+                    <view class='float-right'>
+                      <text class='btn06' data-order_no='{{orderAddPriceItem.order_no}}'bindtap="unconfirmUserAddOrderPriceBindtap">不同意</text>
+                    </view>
+            </block>
+            <block wx:elif="{{orderAddPriceItem.add_status == 2}}">
+                        <view class='float-right'>
+                          <text class='btn07'>已选择不同意</text>
+                        </view>
+              </block>
+
+
+
+      <block wx:if="{{orderAddPriceItem.add_status == 1 && orderAddPriceItem.pay_status == 0}}">
+          <view class='float-right'>
+            <text class='btn06' bindtap='addPricePayBindtap' data-order_no='{{orderAddPriceItem.order_no}}'>支付维修费用</text>
+          </view>
+        </block>
+        <block wx:elif="{{orderAddPriceItem.add_status == 1 && orderAddPriceItem.pay_status == 1}}">
+                  <view class='float-right'>
+                    <text class='btn07'>已支付</text>
+                  </view>
+        </block>
+
+
+
+
+
+
+
+
+          </view>
+          <view class='margin_both3' style='font-size:24rpx'>
+            <text style='width:30%; white-space:nowrap;overflow:hidden;text-overflow:ellipsis; display:inline-block'>{{orderAddPriceItem.add_remark}}</text>
+            
+            <text class='text_red margin_left2'>+￥{{orderAddPriceItem.add_price}}</text>
+            <text class='float-right'>变动后金额 <text class='text_red text_34'>￥{{orderAddPriceItem.order_price}}</text> </text>
+          </view>
+        </view>
+
+      </view>
+    </block>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 取消和支付 start-->
+    <view class='list_box padding01'>
+      <view class='clearfix'>
+
+        <block wx:if="{{orderInfo.order_status == 0}}">
+          <view class='float-right'>
+            <text class='btn06' bindtap='payBindtap' data-order_no='{{orderInfo.order_no}}'>立即支付</text>
+          </view>
+        </block>
+
+        <block wx:if="{{orderInfo.order_status == 0}}">
+          <view class='float-right'>
+            <text class='btn06' data-order_id="{{orderInfo.order_id}}" bindtap="cancelOrderBindtap">取消订单</text>
+          </view>
+        </block>
+
+        <block wx:if="{{orderInfo.order_status == 12}}">
+          <view class='float-right'>
+            <text class='btn06' data-order_id="{{orderInfo.order_id}}" bindtap="evaluationOrderBindtap">立即评价</text>
+          </view>
+        </block>
+
+
+        <!-- 联系客服 -->
+           <view class='float-right'>            
+<button open-type='contact' show-message-card="true" send-message-img="{{orderInfo.goods_list[0].goods_pic}}" send-message-title="{{orderInfo.goods_list[0].goods_name}}" send-message-path="/pages/detailed?goods_id={{orderInfo.goods_list[0].goods_id}}" style='font-size:12px' ><text class='btn06' style='padding:12rpx 30rpx;' >联系客服</text>
+ </button></view>
+
+<!--
+  //2020-7-14 这是以前的
+        <block wx:if="{{orderInfo.order_status == 8}}">
+          <view class='float-right'>
+            <text class='btn06' data-order_id="{{orderInfo.order_id}}" bindtap="confirmAddOrderPriceBindtap">确认增加费用(￥{{orderInfo.order_add_price_info.add_price}})</text>
+          </view>
+        </block>
+-->
+
+
+
+<!-- 
+  //2020-7-14
+        <block wx:if="{{orderInfo.order_status == 10}}">
+          <view class='float-right'>
+            <text class='btn06' bindtap='addPricePayBindtap' data-order_no='{{orderInfo.order_add_price_info.order_no}}'>支付维修费用</text>
+          </view>
+        </block>
+-->
+      </view>
+    </view>
+    <!-- 取消和支付 end -->
+
+
+  </view>
+</view>

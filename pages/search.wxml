@@ -1,0 +1,47 @@
+<view class="body">
+  <view class="main">
+    <view class='surce2'>
+      <image   src='images/indexg_03_03.png'></image>
+      <input value='{{key}}' bindinput='searchInputBindinput' bindblur='searchInputBindblur' bindconfirm='searchInputBindconfirm'></input>
+      <text bindtap='resetSerchBindtap'>取消</text>
+    </view>
+
+
+
+    <view wx:if='{{matchSearchKeyList.length == 0 }}'>
+
+      <view class='margin_both6'>
+        <view class='title01'>热门搜索 </view>
+        <view class='xuan2'>
+          <text wx:for='{{hotSearchList}}' wx:key="key" data-key='{{item.keywords}}' bindtap='selectSearchKey'>{{item.keywords}}</text>
+        </view>
+      </view>
+
+      <view class='margin_both6'>
+        <view class='title01'>历史搜索 <view bindtap='cleanUserSearchBindtap' class='btn_14' style='font-size:26rpx; line-height:34rpx; background:#fff'>清空</view></view>
+        <view class='xuan2'>
+          <text wx:for='{{userSearchList}}' wx:key="key" data-key='{{item.keywords}}' bindtap='selectSearchKey'>{{item.keywords}}</text>
+        </view>
+      </view>
+
+    </view>
+
+
+     <view wx:else='{{matchSearchKeyList.length > 0}}'>
+      <view class='margin_both6'>
+        <view class='clearfix' wx:for='{{matchSearchKeyList}}'  wx:key="key" style='border-bottom: 1rpx solid #e5e5e5; font-size: 28rpx;line-height: 80rpx;'>
+            <view><image src='../images/map_03.png' mode='widthFix' style='width:27rpx;float:left; margin:27rpx 20rpx 0 0'></image></view>
+            <view data-key='{{item.keywords}}' bindtap='selectSearchKey' class='xuan2 float-left'>
+              {{item.keywords}}
+            </view>
+              <!-- <view class='float-right color_888' style='font-size:24rpx;'>约2个结果</view>  -->
+        </view>
+      </view>
+    </view> 
+
+
+
+  </view>
+
+
+</view>

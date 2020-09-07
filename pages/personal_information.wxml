@@ -1,0 +1,52 @@
+<view class="body">
+  <view class="main">
+    <view class='list_arrow' bindtap='editHeadImg'>头像
+      <image src='images/arrow_04.png' mode='widthFix'></image>
+      <image src='{{userInfo.head_pic}}'  style='width:50rpx;height:50rpx;border-radius:50rpx;margin-top:-5rpx'></image>
+    </view>
+    <view class='list_arrow'>联系电话
+     
+      <text wx:if="{{userInfo.mobile}}">{{userInfo.mobile}}</text>
+    </view>
+    <view class='list_arrow' bindtap='editNickname'>昵称
+      <image src='images/arrow_04.png' mode='widthFix'></image>
+      <text wx:if="{{userInfo.nickname}}">{{userInfo.nickname}}</text>
+       <text wx:else="{{}}">点击编辑</text>
+    </view>
+    <view class='list_arrow' bindtap='addrSelectBindTap'>常用地址
+      <image src='images/arrow_04.png' mode='widthFix'></image>
+      <text style='width:68%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align: right' wx:if="{{userInfo.address}}">{{userInfo.address}}</text>
+       <text wx:else="{{}}">点击编辑</text>
+    </view>
+    <view class='list_arrow' bindtap='editSex'>性别
+      <image src='images/arrow_04.png' mode='widthFix'></image>
+      <text wx:if="{{userInfo.sex==1}}">男</text>
+      <text wx:if="{{userInfo.sex==2}}">女</text>
+      <text wx:if="{{userInfo.sex==0}}">保密</text>
+       <text wx:if="{{userInfo.sex==null}}">点击编辑</text>
+    </view>
+    <view class='list_arrow'>
+      <picker mode="date" value="{{date}}" start="1917-01-01" end="2020-1-23" bindchange="editBirthday">
+      <view class="picker" >
+        生日
+        <image src='images/arrow_04.png' mode='widthFix'></image>
+        <text wx:if="{{userInfo.birthday}}">{{userInfo.birthday}}</text>
+         <text wx:else="{{}}">点击编辑</text>
+      </view>
+    </picker>
+    </view>
+    <view class='list_arrow' bindtap='editSign'>个性签名
+      <image src='images/arrow_04.png' mode='widthFix'></image>
+      <text wx:if="{{userInfo.signature_desc}}">{{userInfo.signature_desc}}</text>
+       <text wx:else="{{}}">点击编辑</text>
+    </view>
+
+    <modal hidden="{{hiddenmodalputNickname}}" title="{{modelName}}" confirm-text="提交" cancel-text="重置" bindcancel="modalCancel" bindconfirm="modalConfirmNickname">
+      <input type='text' bindinput='inputValue' value="{{modelValue}}" auto-focus/>
+    </modal>
+    <modal hidden="{{hiddenmodalputSign}}" title="{{modelName}}" confirm-text="提交" cancel-text="重置" bindcancel="modalCancel" bindconfirm="modalConfirmSign">
+      <input type='text' bindinput='inputValue' value="{{modelValue}}" auto-focus/>
+    </modal>
+    
+  </view>
+</view>

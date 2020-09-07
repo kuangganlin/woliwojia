@@ -1,0 +1,23 @@
+
+
+<view class="body">
+   <view class="main">
+   <view wx:for="{{addrList}}"  class='margin_bottom'>
+   <view class="list_03" data-index='{{index}}' bindtap='chooseAddressEvent' >
+         <view>
+               <view class='clearfix' style='font-size:32rpx'>{{item.contact_name}}     <view class='float-right'>{{item.contact_tel}}</view> </view>
+               <view style='margin-top:10rpx'>{{item.addr_dec}} </view>
+            </view>  
+		</view>
+
+    <view class='list02' style='font-size:26rpx'> <radio bindtap='defAddressBindtap'  data-index='{{index}}'  checked='{{(item.def_flag == 1)? true:false}}'></radio>默认地址 
+    <view class="float-right icon" data-index='{{index}}' bindtap="editAddressBindtap"><image src="../images/gj_03.png"  style='float:left; margin:30rpx 10rpx 0 10rpx'></image>编辑</view>
+    <view class="float-right icon" data-index='{{index}}'  bindtap="deleteAddressBindtap">删除<image src="../images/gj_05.png"  style='float:left; margin:30rpx 10rpx 0 10rpx'></image></view></view>
+
+</view>
+
+
+  <view class="btn_big01" style='position:fixed' bindtap='addAddressBindtap' > <image src="../images/price_05.png"></image> 增加地址信息</view>
+	</view>
+
+</view>

@@ -1,0 +1,5 @@
+/* pages/order_details.wxss */
+.list .phototwo{margin: 30rpx 0 30rpx 10rpx;float: left; position: relative;height: 200rpx;}
+.list .phototwo .close{ position: absolute; right: 20rpx}
+.list .phototwo .close image{width: 20rpx}
+.list .phototwo image{ width: 210rpx; height: 200rpx;} video{ width: 210rpx; height: 163rpx;} 

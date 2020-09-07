@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ad_show",
+    "pages/addr/address_list",
+    "pages/addr/add_address",
+    "pages/order",
+    "pages/index/goods_comment_list",
+    "pages/order/order_pay_add_price",
+    "pages/imagecrop/image_crop",
+    "pages/order/order_pay",
+    "pages/order/order_save",
+    "pages/collection",
+    "pages/me",
+    "pages/index/goods_list",
+    "pages/search",
+    "pages/personal_information",
+    "pages/add_address",
+    "pages/common_address",
+    "pages/reservation_now",
+    "pages/detailed",
+    "pages/classification",
+    "pages/reservation",
+    "pages/address",
+    "pages/about",
+    "pages/evaluation",
+    "pages/order_details"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#59a5f1",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/home2_08.png",
+        "selectedIconPath": "/assets/images/home_08.png"
+      },
+      {
+        "pagePath": "pages/reservation",
+        "text": "预约",
+        "iconPath": "/assets/images/home_03.png",
+        "selectedIconPath": "/assets/images/home2_03.png"
+      },
+      {
+        "pagePath": "pages/me",
+        "text": "我的",
+        "iconPath": "/assets/images/home_05.png",
+        "selectedIconPath": "/assets/images/home2_05.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

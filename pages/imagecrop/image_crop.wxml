@@ -1,0 +1,21 @@
+<import src="../../libs/we-cropper/we-cropper.wxml"/>
+
+<view class="cropper-wrapper">
+    <template is="we-cropper" data="{{...cropperOpt}}"/>
+   
+   
+    <view class="cropper-buttons">
+        <view wx:if="{{button01Desc.length > 0}}"
+                class="upload"
+                bindtap="button01Bindtap">
+            {{button01Desc}}
+        </view>
+        
+         <view wx:if="{{button02Desc.length > 0}}"
+                class="getCropperImage"
+                bindtap="button02Bindtap">
+            {{button02Desc}}
+        </view> 
+       
+    </view>
+</view>

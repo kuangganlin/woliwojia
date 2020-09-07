@@ -1,0 +1,40 @@
+<view class="body">
+   <view class="main">
+ 
+     
+
+       <view class='list_box margin_top'>
+          <view class='list'>
+           <view class='list'>
+                <view class='text_30'>哈哈哈 <text class='float-right'>1366666666666</text></view>
+                重庆渝北区XXXXXXXXXXXXXXXX
+            </view>
+            <view class='clearfix margin_top'>
+                 <view class='float-left'><radio></radio>默认地址</view>
+                <view class='float-right'><image src='../../assets/images/gj_03.png' mode='widthFix' style='width:40rpx;margin:0 10rpx'></image><image src='../../assets/images/gj_05.png' mode='widthFix' style='width:40rpx;margin:0 10rpx'></image></view>
+            </view>
+             
+          </view>
+       </view>
+
+       
+       <view class='list_box margin_top'>
+          <view class='list'>
+           <view class='list'>
+                <view class='text_30'>哈哈哈 <text class='float-right'>1366666666666</text></view>
+                重庆渝北区XXXXXXXXXXXXXXXX
+            </view>
+            <view class='clearfix margin_top'>
+                 <view class='float-left'><radio></radio>默认地址</view>
+                <view class='float-right'><image src='../../assets/images/gj_03.png' mode='widthFix' style='width:40rpx;margin:0 10rpx'></image><image src='../../assets/images/gj_05.png' mode='widthFix' style='width:40rpx;margin:0 10rpx'></image></view>
+            </view>
+             
+          </view>
+       </view>
+
+<view class='height_z'></view>
+      <view class='but04'>添加常用地址</view>
+
+
+   </view>
+</view>

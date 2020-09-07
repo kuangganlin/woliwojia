@@ -1,0 +1,10 @@
+<view class="body">
+   <view class="main">
+      <view class='list'>
+          <view class='logo ce'><image src='images/logo.jpg'></image></view>
+      </view>
+      <view class='list'>官方网址:www.irmhome.com</view>
+      <view class='list'>官方微信:wxainifacai</view>
+      <view class='list'>官方电话:238-8888666</view>
+   </view>
+</view>

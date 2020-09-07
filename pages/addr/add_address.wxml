@@ -1,0 +1,45 @@
+
+<view class="body">
+  <view class="main">
+    <view class="title">联系人</view>
+    <view class="box02">
+      <view class="list_04">
+        <label class="float-left">姓名：</label>
+        <input value="{{address.contact_name}}"  style='height:50rpx; padding-top:17rpx' class="name" bindinput='contactNameBindinput' />
+      </view>
+      <view class="list_04">
+        <label class="float-left">电话：</label>
+        <input value="{{address.contact_tel}}" style='height:50rpx; padding-top:17rpx' type='number' maxlength='11'  bindinput='contactTelBindinput' />
+      </view>
+    </view>
+    <view class="title">地址</view>
+
+    <view class="box02">
+        <!-- <navigator url='/pages/addr/select_address'> -->
+      <view bindtap='selectAddressBindtap' class="list_04" >
+          <label class="float-left">选择地址</label>
+          <view class="arrow_01">
+            <image src="../images/arrow_04.png"></image>
+          </view>
+        </view>
+        <!-- </navigator> -->
+        <!-- <label>详细地址：</label> -->
+
+        <view hidden='{{isShowTextarea}}'  class="list_04" style='height:150rpx'>
+        <view style='line-height:35rpx;margin:10rpx 0'>
+           <textarea  value="{{address.addr_dec}}" placeholder='请输入地址' bindinput='addressBindinput'  maxlength='-1' style='width:100%;  line-height:35rpx;padding:5px;height:90rpx'/>
+
+      </view>
+ 
+      </view> 
+
+    </view>
+     <view bindtap='addressDefBindtap' class='list02' style='font-size:26rpx;margin-top: 30rpx'> <radio checked='{{(address.def_flag == 1)? true:false}}'></radio>默认地址</view>
+
+    <view class="btn_04" bindtap='saveBindtap'>确认保存</view>
+
+
+
+  </view>
+</view>
+

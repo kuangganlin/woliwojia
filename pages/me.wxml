@@ -1,0 +1,147 @@
+<view class="body">
+  <view class="main">
+    <view class='me_top clearfix'>
+      <view class='head float-left' wx:if="{{authSetting==1}}">
+        <image src='{{userInfo.head_pic}}'></image>
+      </view>
+      <view class='float-left margin_left' wx:if="{{authSetting==1}}">
+        <view class='text_30 color_fff margin_top2' wx:if="{{userInfo.nickname}}">
+          <!-- <open-data type="userNickName"></open-data> -->
+          {{userInfo.nickname}}
+        </view>
+        <view class='star'>
+          <!-- <image src='images/star_03.png'></image>
+          <image src='images/star_03.png'></image>
+          <image src='images/star_03.png'></image>
+          <image src='images/star_03.png'></image>
+          <image src='images/star_04.png'></image> -->
+        </view>
+      
+      <view wx:if="{{authSetting==0}}">
+        <button class='login-btn' open-type='getUserInfo' bindgetuserinfo='handleUserInfo'>
+          授权登录
+          </button>
+      </view>
+      <view wx:if="{{authSetting==1 && authSetting_mobile==0}}">
+        <button open-type="getPhoneNumber" lang="zh_CN" bindtap='getUserOnClick' bindgetphonenumber="getPhoneNumberInfo"  >授权电话</button>
+      </view>
+    </view>
+    </view>
+    <navigator url='order'>
+      <view class='list_arrow'>我的订单
+        <image src='images/arrow_04.png' mode='widthFix'></image>
+        <text>查看全部</text>
+      </view>
+    </navigator>
+    <view class='list clearfix'>
+      <navigator url="/pages/order?orderStatus=6">
+      
+      <view class='ico_b' style='position:relative'>
+       <view class='number2' wx:if="{{statisticsInfo.unConfirmCount != null && statisticsInfo.unConfirmCount > 0}}">{{statisticsInfo.unConfirmCount}}</view> 
+        <image src='images/me_07.png' mode='widthFix'></image>
+        <view>待确认</view>
+      </view>
+      </navigator>
+
+      <navigator url="/pages/order?orderStatus=3">
+      <view class='ico_b' style='position:relative'>
+        <view class='number2' wx:if="{{statisticsInfo.unServiceCount != null && statisticsInfo.unServiceCount > 0}}">{{statisticsInfo.unServiceCount}}</view>
+        <image src='images/me_09.png' mode='widthFix'></image>
+        <view>待服务</view>
+      </view>
+      </navigator>
+
+      <navigator url="/pages/order?orderStatus=2">
+      <view class='ico_b' style='position:relative'>
+         <view class='number2' wx:if="{{statisticsInfo.buyPayCount != null && statisticsInfo.buyPayCount > 0}}">{{statisticsInfo.buyPayCount}}</view>
+        <image src='images/me_11.png' mode='widthFix'></image>
+        <view>待支付</view>
+      </view>
+      </navigator>
+
+      <navigator url="/pages/order?orderStatus=5">
+      <view class='ico_b' style='position:relative'>
+         <view class='number2' wx:if="{{statisticsInfo.unEvaluateCount != null && statisticsInfo.unEvaluateCount > 0}}">{{statisticsInfo.unEvaluateCount}}</view>
+        <image src='images/me_14.png' mode='widthFix'></image>
+        <view>待评价</view>
+      </view>
+      </navigator>
+
+    </view>
+    <view class='list_box margin_top'>
+      <navigator url='collection'>
+        <view class='list_arrowimg clearfix'>
+          <view class='list_imgleft'>
+            <image src='images/me2_03.png' mode='widthFix'></image>收藏</view>
+          <view class='list_imgright'>
+            <image src='images/arrow_04.png' mode='widthFix'></image>
+          </view>
+        </view>
+      </navigator>
+      <view class='list_arrowimg clearfix' bindtap="get_personal_information">
+        <view class='list_imgleft'>
+          <image src='images/me2_07.png' mode='widthFix'></image>我的资料</view>
+        <view class='list_imgright'>
+          <image src='images/arrow_04.png' mode='widthFix'></image>
+        </view>
+      </view>
+      <navigator url="/pages/addr/address_list">
+      <view class='list_arrowimg clearfix' >
+        <view class='list_imgleft'>
+          <image src='images/me2_12.png'  mode='widthFix'></image>我的地址</view>
+        <view class='list_imgright'>
+          <image src='images/arrow_04.png' mode='widthFix'></image>
+        </view>
+      </view>
+      </navigator>
+    </view>
+    <view class='list_box margin_top'>
+      <navigator url='about'>
+        <view class='list_arrowimg clearfix'>
+          <view class='list_imgleft'>
+            <image src='images/me2_11.png' mode='widthFix'></image>关于</view>
+          <view class='list_imgright'>
+            <image src='images/arrow_04.png' mode='widthFix'></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+<!-- 授权昵称对话框  -->
+    <view hidden="{{authSettingHide}}" class="modal-box">
+      <view class="modal-body">
+        <view class="modal-content">
+          <view class='titl'>提示</view>
+          <view style='margin:40rpx 20rpx 30rpx 20rpx; font-size:35rpx; text-align:center'>您还没有进行昵称和头像认证,点击确定进行认证!</view>
+          <view class='butt'>
+            <view class='knowBtn'>
+              <button open-type='getUserInfo' bindgetuserinfo='handleUserInfo'  plain='true' style='padding:20rpx 0'>确定</button>
+
+            </view>
+            <view>
+              <button bindtap='getUserNicknameCancelOnClick' plain='true' style='padding:20rpx 0' >取消</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 授权电话对话框  -->
+    <view wx:if="{{authSetting}}" hidden="{{authSetting_mobileHide }}" class="modal-box">
+      <view class="modal-body">
+        <view class="modal-content">
+          <view class='titl'>提示</view>
+          <view style='margin:40rpx 20rpx 30rpx 20rpx; font-size:35rpx; text-align:center'>您还没有进行电话认证,点击确定进行认证!</view>
+          <view class='butt'>
+            <view class='knowBtn'>
+              <button open-type="getPhoneNumber" lang="zh_CN" bindtap='getUserOnClick' bindgetphonenumber="getPhoneNumberInfo"  plain='true' style='padding:20rpx 0'>确定</button>
+
+            </view>
+            <view>
+              <button bindtap='getUserTelCancelOnClick' plain='true' style='padding:20rpx 0' >取消</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

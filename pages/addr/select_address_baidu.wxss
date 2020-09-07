@@ -1,0 +1,28 @@
+@import "../style.wxss";
+
+.clearfix:after, .clearfix:before {
+
+  content: " ";
+  clear: both;
+}
+.magnifier{ position: absolute; top: 15rpx; left: 25rpx}
+.magnifier image{ width: 30rpx; height: 30rpx;}
+
+.search{ margin: 20rpx 5%; position: relative}
+
+.input05{ background: #fff; border: 2rpx solid #dcdcdc; border-radius: 30rpx 0 0 30rpx; border-right: none; float: left; width: 70%; height: 65rpx; line-height: 65rpx; padding-left: 60rpx; color: #999}
+
+.btn03{ background: #ff5f81 ;border: 2rpx solid #dcdcdc; border-left: none; border-radius: 0 30rpx 30rpx 0; float: left; color: #fff; padding: 0 30rpx; height: 65rpx; line-height: 65rpx; font-size: 26rpx}
+.cover_three{ position: absolute; bottom: 50rpx; right: 40rpx; background: #eef1f7; border: 2rpx solid #dedede; border-radius: 50rpx;padding: 15rpx;box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); }
+.cover_three cover-image{  width: 50rpx; height: 50rpx;}
+.color_888{color: #999}
+.color_333{color: #333}
+.text_26{font-size: 26rpx}
+.text_30{font-size: 30rpx}
+.list_03{ padding: 15rpx 30rpx; border-bottom: 1rpx solid #dcdcdc}
+
+page{
+background: #fff;
+}
+.cover_core{ position: absolute; top: 20%; right: 50%;  }
+.cover_core cover-image{  width: 52rpx; height: 81rpx;}

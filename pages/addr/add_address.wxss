@@ -1,0 +1,51 @@
+@import "../style.wxss";
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: red;
+}
+
+
+.citybody {
+  position: fixed;
+  bottom: 0px;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #818181;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #2FB42E
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 1px #d9d9d9 solid;
+  border-top: 1px #d9d9d9 solid;
+  padding: 20rpx;
+  
+}
+.float-left {
+  float: left;
+}
+.arrow_01{ float: right; color: #999; font-size: 24rpx}
+.arrow_01 image{ width: 30rpx; height: 30rpx}
+.title{ font-size: 32rpx; color: #333; line-height: 55rpx; padding: 30rpx 30rpx 10rpx 30rpx; vertical-align: center}
+.box02{ border-top: 1px solid #eef1f7; margin-top: 15rpx; background: #fff}
+.list_04{height: 85rpx; font-size: 28rpx; line-height: 85rpx; padding: 0 5%; border-bottom: 1px solid #eef1f7; background: #fff;}
+.btn_big02{ background: #ff9916; width: 90%; color: #fff; font-size: 30rpx; border-radius: 10rpx; text-align: center; margin: 50rpx auto; padding: 22rpx 0;}
+.btn_04{background: #59a5f1; }

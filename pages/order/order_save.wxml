@@ -1,0 +1,162 @@
+<import src="../../libs/keyboard/keyboard.wxml" />
+
+<template is="keyboard" data="{{ ...$wux.keyboard }}" />
+
+<view class="body">
+  <view class="main">
+    <!-- <navigator wx:if='{{logistics_type =="3" || logistics_type=="4" || logistics_type=="5" || logistics_type=="6" }}'> -->
+      
+    <!-- </navigator> -->
+   
+
+    <view class='list02_box'>
+      <view class='list07 clearfix'>
+        <view class='float-left'>
+          <image src='{{goodsInfo.goods_pic}}' style='width:120rpx;height:100rpx;border-radius:10rpx'></image>
+        </view>
+        <view class='float-left' style='width:80%'>
+          <view style='margin-left:20rpx; line-height:50rpx;width:90%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{goodsInfo.goods_name}}</view>
+         <view class='price'> <text>商品价格:</text><text style='color: #ffad37;font-size:26rpx;margin-left:10rpx'>{{goodsInfo.goods_price}}元</text>
+         <text>工时费:</text><text style='color: #ffad37;font-size:26rpx;margin-left:10rpx'>{{goodsInfo.service_price}}元</text>
+         
+         </view>
+        </view>
+        <view wx:if="{{goodsInfo.logistics_type == 1 }}" class='float-right color_888 text_25' style='margin-top:60rpx'>上门自提</view>
+        <view wx:if="{{goodsInfo.logistics_type == 2 }}" class='float-right color_888 text_25' style='margin-top:60rpx'>约定交易</view>
+        <view wx:if="{{goodsInfo.logistics_type == 3 }}" class='float-right color_888 text_25' style='margin-top:60rpx'>免费配送</view>
+         <view wx:if="{{goodsInfo.logistics_type == 4 }}" class='float-right color_888 text_25' style='margin-top:60rpx'>货到付款</view>
+        <!-- <view  class='float-right color_888 text_25' style='margin-top:60rpx'>服务费:{{goodsInfo.service_price}}元</view>-->
+     
+     
+
+      </view>
+      <view class='list07'>
+        <view class='price5 clearfix'>
+        <view class='float-right;' style='font-size:46rpx'><text>合计：</text><text style='color: #ffad37;font-size:26rpx;margin-left:10rpx'>{{goodsInfo.allPayRmbPrice}}元</text> </view>
+            
+        </view>
+        </view>
+    </view>
+
+
+
+    <navigator url='/pages/addr/address_list'>
+        <view class='list02 margin_top' style='line-height:55rpx'>
+
+       <block wx:if="{{selectAddress == null}}">
+         <view class='list02'>请选择地址<image src='../images/arrow_04.png' mode='widthFix'></image><text></text></view>
+      </block>
+       <block wx:elif="{{selectAddress != null}}">
+           <view class='text_30' style='padding:20rpx 50rpx 0 20rpx'>{{(goodsInfo.logistics_type==1 || goodsInfo.logistics_type==2) ? "联系人":"联系人"}}:{{selectAddress.contact_name}}
+            <view class='float-right'>{{(goodsInfo.logistics_type==1 || goodsInfo.logistics_type==2) ? "电话":"电话"}}:{{selectAddress.contact_tel}}</view>
+          </view>
+          <view class='clearfix margin_bottom3'>
+            <view class='float-left address'>
+              <image src='../images/indexg_03.png' mode='widthFix' style='margin:10rpx 0 0 0'></image>
+            </view>
+            <view class='float-left'  style='width:80%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{(goodsInfo.logistics_type==1 || goodsInfo.logistics_type==2) ? "联系地址":"服务地址"}}:{{selectAddress.addr_dec}} </view>
+            <image src='../images/arrow_04.png' mode='widthFix' style='margin:10rpx 0 0 0'></image>
+
+          </view> 
+
+           
+  </block>
+
+          <!-- <view class='list02 clearfix'> <view class='float-left' style='width:20%'>联系人</view><view class='float-left' style='width: 70%'><input class='input01' value="{{contactName}}" bindinput='contactNameBindinput'></input></view></view>
+        
+         <view class='list02 clearfix'> <view class='float-left' style='width:20%'>电话</view><view class='float-left' style='width: 70%'> <input maxlength="11" class='input01' type='number' value="{{contactTel}}" bindinput='contactTelBindinput'></input></view></view> -->
+
+        </view>
+      </navigator>
+      
+      
+      <!-- 如果是普通商品就是日期选择器 -->
+      <block wx:if="{{goodsInfo.goods_type == 0}}">
+      <view class='list02_box margin_both3'>
+            <view class='list02'>预约时间 <image src='../images/arrow_04.png' mode='widthFix'></image>
+            <picker mode="multiSelector" value="{{enrollDateTime}}" bindchange="enrollDateTimeBindchange" bindcolumnchange="enrollDateTimeBindcolumnchange" range="{{enrollDateTimeArray}}"  class="picker">
+              <view >
+                {{selectEnrollDateTime.length == 0?'请选择预约时间':selectEnrollDateTime}}
+              </view>
+            </picker>
+
+          </view> 
+      </view>
+      </block>
+
+      <!-- 如果是服务商品就是预约日期 -->
+      <block wx:if="{{goodsInfo.goods_type == 2}}">
+      <view class='list02_box margin_top'>
+           <view class='list02'>预约时间 <text>{{goodsInfo.service_date}}</text></view>                   
+      </view>
+      </block>
+       
+      
+
+    <view class='list_box margin_both3'>
+            
+            <view class='list clearfix'>
+                <view >维修故障照片(可提交多张照片) <text class='btn01 float-right'  bindtap='imageOnClickEvent'>添加维修故障照片</text></view>
+                <view class="clearfix">
+
+                   <block wx:if="{{selectLocalImages.length > 0}}">
+                    <block  wx:for="{{selectLocalImages}}" wx:key="*this" wx:for-item="item">
+                    <view class='phototwo '>
+                    <view  class='close' data-index="{{index}}"  bindtap='imageDeleteOnClickEvent'><image  src='../images/indexg_16.png' mode='widthFix'></image></view><image bindtap='previewImageBindtap' style='width:200rpx;height:150rpx;margin:20rpx 10rpx;' data-index='{{index}}' src="{{item}}"></image>
+                    </view>
+
+
+                    </block>
+                  </block>
+
+
+                </view>
+            </view>
+       </view>
+
+
+      <view class='list_box margin_both3'>
+          <view class='list02'>问题详细描述及备注 <text></text></view> 
+          <view class='list ritextarea'>
+            <textarea bindinput='orderDescInputBindinput' placeholder='请填写问题详细描述及备注...' auto-focus maxlength='-1'></textarea>
+          </view>
+          
+        </view>
+
+        <view class='list_box margin_both3'>
+          <view class='list02'>下单须知 <text></text></view> 
+          <view class='list ritextarea'>
+            {{order_notice}}
+          </view>
+          
+        </view>
+
+
+
+    <!-- <view class='list02_box margin_top'>
+       <view class='list02'>购买数量 <view class='addsub'>+</view><text>1</text><view class='addsub'>-</view></view>
+           <view class='list02'>优惠方式 <image src='images/arrow_04.png' mode='widthFix'></image><text>官网红包</text></view>
+           <view class='list02'>配送方式<image src='images/arrow_04.png' mode='widthFix'></image><text>官网包邮</text></view>
+    </view> -->
+
+
+    <!-- <view class='fix'>
+    <view class='fix_li2 text_red text_38'>
+        <image src='images/sign_04.png' mode='widthFix'></image> {{ytao_price}}</view>
+        <view bindtap='pay' class='btn_05 float-right'>提交订单</view>
+    </view> -->
+        
+          <view class='margin_top boxcontent' style='display:none;'>
+          <view class='title06'>支付方式</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <view class='list07'><image src='../images/icon91.png' mode='widthFix' style='width:40rpx'></image> <label  data-pay_type="1" bindtap="selectPayType"> 微信支付  <text style='color: #ff5f81; margin:0 0 0rpx 20rpx;'>({{goodsInfo.allPayRmbPrice}})元</text> <radio class='float-right' checked="checked"></radio></label></view>
+              <!-- <view class='list07'><label  data-pay_type="4" bindtap="selectPayType"> {{tradeUnit}}支付  <text style='color: #ff5f81; margin:0 0 0rpx 20rpx;'>({{goodsInfo.allPayYtaoPrice+tradeUnit}})</text> <radio class='float-right'></radio></label></view> -->
+            </radio-group>
+
+           
+
+          </view>
+      <view class='btn_04' bindtap='payGoodsBindtap' >立即支付</view>
+
+  </view>
+</view>

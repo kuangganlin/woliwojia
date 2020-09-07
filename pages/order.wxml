@@ -1,0 +1,130 @@
+<view class="body">
+   <view class="main">
+ 
+       <view class='fixd_top clearfix' >     
+           <view class="{{ orderStatus == 1 ? 'now' : ''}}" data-status_type="1" bindtap="orderStatusBindtap">全部</view>
+           <view class="{{ orderStatus == 2 ? 'now' : ''}}" data-status_type="2" bindtap="orderStatusBindtap">未支付</view>
+           <view class="{{ orderStatus == 6 ? 'now' : ''}}" data-status_type="6" bindtap="orderStatusBindtap">待确认</view>
+           <view class="{{ orderStatus == 3 ? 'now' : ''}}" data-status_type="3" bindtap="orderStatusBindtap">待服务</view>
+           <view class="{{ orderStatus == 4 ? 'now' : ''}}" data-status_type="4" bindtap="orderStatusBindtap">服务中</view>
+           <view class="{{ orderStatus == 5 ? 'now' : ''}}" data-status_type="5" bindtap="orderStatusBindtap">待评价</view>
+
+       </view>
+       <view class='height_top'></view>
+
+      <!--循环开始-->
+      <block wx:if="{{order_list!= null && order_list.length > 0}}">
+      <view  wx:for="{{order_list}}" wx:key="*this" wx:for-item="orderItem">
+      
+        <view class='list_box margin_both3'>
+          <view class='list'>
+          <navigator url='order_details?orderId={{orderItem.order_id}}'> 
+           <view class='list'>订单号：{{orderItem.order_no}} <text class='float-right text_red'>{{orderItem.order_status_desc}}</text></view>
+            </navigator>
+              <!-- 商品循环开始 -->
+              <view class='clearfix padding01' wx:for="{{orderItem.goods_list}}" wx:key="*this" wx:for-index="bindex" wx:for-item="goodsItem">
+                <navigator url='order_details?orderId={{orderItem.order_id}}'> 
+                <view class='avatar'><image src='{{goodsItem.goods_pic}}' ></image></view>
+                </navigator>
+                  <view class='width05'>
+                     <navigator url='order_details?orderId={{orderItem.order_id}}'> 
+                     <view class='text_28' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{goodsItem.goods_name}}</view>
+                      <view class='text_30 text_red'>￥{{orderItem.order_price}}</view>
+                       <view class='color_888'><image src='images/btn_06.png' mode='widthFix' style='width:24rpx;margin-right:5rpx'></image> 预约时间：{{orderItem.covenant_time}}<image src='images/arrow_04.png' mode='widthFix' style="width:30rpx;float:right;margin:5rpx 0 0 10rpx;"></image></view>
+
+                      <!--<view class='color_888' wx:if="{{goodsItem.goods_type==0}}"><image src='images/indexg_03.png' mode='widthFix' style='width:28rpx;margin-right:5rpx'></image> 地址：{{orderItem.user_addr_info.addr_dec}}</view>-->
+                      </navigator>
+                       <view wx:if="{{goodsItem.goods_type==2}}" data-contact_tel='{{orderItem.goods_spec_info.mobile}}' bindtap="phoneCall">维修师傅：{{orderItem.goods_spec_info.spec_name}} <image src='images/icon2_07.png' mode='widthFix' style='width:50rpx;margin-left:5rpx'></image></view>
+
+                  </view>
+                </view>
+                <!-- 商品循环结束 -->
+               
+
+                <view class='list_box padding01'>
+                    <view class='clearfix'>
+                        
+
+
+
+                       <block wx:if="{{orderItem.order_status == 0}}">
+                          <view class='float-right'><text class='btn06' bindtap='payBindtap' data-order_no='{{orderItem.order_no}}'>立即支付</text></view>
+                        </block>
+                       
+                        <block wx:if="{{orderItem.order_status == 6 && orderItem.service_com_time!= null}}"> 
+                        <view class='float-right'><text class='btn06' data-order_id="{{orderItem.order_id}}" bindtap="confirmOrderBindtap">确认师傅完成</text></view>
+                       </block>  
+
+                       <block wx:if="{{orderItem.order_status == 2 || orderItem.order_status == 4}}"> 
+                        <view class='float-right'><text class='btn06' data-order_id="{{orderItem.order_id}}"  data-order_status="{{orderItem.order_status}}" data-modify_covenant_time_num="{{orderItem.modify_covenant_time_num}}" bindtap="closeOrderBindtap">取消订单并退款</text></view>
+                       </block>  
+
+                      <block wx:if="{{orderItem.order_status == 0 || orderItem.order_status == 2 || orderItem.order_status == 4 }}"> 
+<view class='float-right'><text class='btn06' data-order_id="{{orderItem.order_id}}" data-covenant_time="{{orderItem.covenant_time}}" bindtap="modifyCovenant_timeBindtap">修改预约时间</text></view>
+                       </block>  
+
+
+                        <!-- 联系客服 -->
+           <view class='float-right'>            
+<button open-type='contact' show-message-card="true" send-message-img="{{orderItem.goods_list[0].goods_pic}}" send-message-title="{{orderItem.goods_list[0].goods_name}}" send-message-path="/pages/detailed?goods_id={{orderItem.goods_list[0].goods_id}}" style='font-size:12px' ><text class='btn06'style='padding:8rpx 30rpx;'>联系客服</text>
+ </button></view>
+
+
+
+
+                      <block wx:if="{{orderItem.order_status == 0}}">
+                        <view class='float-right'><text class='btn06' data-order_id="{{orderItem.order_id}}" bindtap="cancelOrderBindtap">取消订单</text></view>
+                      </block> 
+
+                      <block wx:if="{{orderItem.order_status == 12}}">
+                        <view class='float-right'><text class='btn06' data-order_id="{{orderItem.order_id}}" bindtap="evaluationOrderBindtap">立即评价</text></view>
+                      </block> 
+
+                      <!-- <block wx:if="{{orderItem.order_status == 6 &&  orderItem.order_add_price_info}}">
+                      <view class='float-right'><text class='btn06'>确认增加费用</text></view>
+                      </block>  -->
+
+                      <block wx:if="{{orderItem.order_status == 8}}">
+                      <view class='float-right'><text class='btn06' data-order_no='{{orderItem.order_add_price_info.order_no}}' data-order_id="{{orderItem.order_id}}" bindtap="confirmAddOrderPriceBindtap">确认增加费用(￥{{orderItem.order_add_price_info.add_price}})</text></view>
+                      </block>
+
+                      <block wx:if="{{orderItem.order_status == 10}}">
+                      
+                       
+                      <view class='float-right'><text class='btn06' bindtap='addPricePayBindtap' data-order_no='{{orderItem.order_add_price_info.order_no}}'>支付维修费用</text></view>
+                      
+                     
+
+
+                       </block> 
+
+                    </view>
+                </view>
+
+
+
+          </view>
+       </view>
+       
+       </view>
+      </block>
+      
+      <block wx:else> 
+            <view class='height_z'></view>
+            <view class='ce color_888 text_34'>暂无订单</view>
+      </block>
+      <!--循环结束-->
+
+      
+<modal hidden="{{hiddenmodalputCovenant_time}}" title="{{modelName}}" data-order_id="{{order_id}}"  data-covenant_time="{{modelValue}}" confirm-text="修改" cancel-text="取消" bindcancel="modalCancel" bindconfirm="modalConfirmCovenant_time">
+      <!-- <input type='text' bindinput='inputValue' value="{{modelValue}}" auto-focus/> -->
+      <picker mode="multiSelector" value="{{enrollDateTime}}" bindchange="enrollDateTimeBindchange" bindcolumnchange="enrollDateTimeBindcolumnchange" range="{{enrollDateTimeArray}}"  class="picker">
+        <view >
+          {{selectEnrollDateTime.length == 0?'请选择预约时间':selectEnrollDateTime}}
+        </view>
+      </picker>
+</modal>
+
+
+   </view>
+</view>

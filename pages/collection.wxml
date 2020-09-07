@@ -1,0 +1,57 @@
+<view class="body">
+   <view class="main">
+
+      
+
+       <!-- 商品收藏s -->
+      
+      <block wx:if="{{collectGoodsList.length > 0}}">
+        <view class='index_list clearfix' wx:for="{{collectGoodsList}}" wx:key="*this" wx:for-item="collectItem">
+          <view class='float-left' style='width:10%; padding-top:60rpx'><!--<radio></radio>-->
+          <icon wx:if="{{collectItem.selected}}" type="success_circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
+            <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" class="my-check"/>
+          
+          </view>
+            <view class='index_listleft'> <image src='{{collectItem.goods_pic}}'></image></view>
+            <view class='index_listright' style='width:52%'>
+                <view class='text_30'>{{collectItem.goods_name}}</view>
+                <view class='star'>
+                
+                <block wx:if="{{collectItem.aveg_grade.length > 0}}">
+                  <image src='../../assets/images/star_03.jpg' wx:for="{{collectItem.aveg_grade}}" wx:key="*this" wx:for-item="aveg_grade_item"></image>
+                </block>
+
+                <block wx:if="{{collectItem.un_aveg_grade.length > 0}}">
+                  <image src='../../assets/images/star_04.jpg' wx:for="{{collectItem.un_aveg_grade}}" wx:key="*this" wx:for-item="aveg_grade_item"></image>
+                </block>
+               
+                </view>
+                <view><text class='text_38 text_red'>￥{{collectItem.goods_price}}</text>  
+
+                <text class='btn01 margin_both4' wx:if="{{collectItem.price_type==0}}">一口价</text>
+                <text class='btn01 margin_both4' wx:if="{{collectItem.price_type==1}}">定金</text>
+                </view>
+                <view class='color_888'>已售 {{collectItem.goods_seller_count}} <!--<view class='float-right'><image src='../../assets/images/indexg_03.png' mode='widthFix' style='width:28rpx;'></image>1.4km</view>--></view>
+            </view>
+        </view>
+
+       
+      </block>
+      <block wx:else> 
+            
+            <view class='height_z'></view>
+            <view class='ce color_888 text_34'>暂无商品收藏</view>
+        </block>
+      <!-- 商品收藏e -->
+
+      <view class='height_z'></view>
+<view class='fixd'>
+     <view class='margin_top2 float-left' bindtap="bindSelectAll"><!--<radio></radio>-->
+          <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20" class="l-mycheck"/>
+          <icon wx:else type="circle" size="20" class="l-mycheck"/>
+     </view>
+     <view class='float-right btn03' bindtap="delcollectionBindtap">移除收藏</view>
+</view>
+
+</view>
+</view>

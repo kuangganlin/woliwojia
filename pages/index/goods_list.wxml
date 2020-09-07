@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="body">
+  <view class="main">
+
+     <!-- 轮播分类 start -->
+    <view wx:if="{{goodsTypesGroup.length>0 && keyword ==''}}" class='ico clearfix'>
+      <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange" style='height:250rpx'>
+        <block wx:for="{{goodsTypesGroup}}" wx:for-item="item1" wx:key="key1">
+          <swiper-item>
+            <view wx:for="{{item1.group}}" wx:for-item="item2" wx:key="key2">
+              <navigator url="goods_list?p_type_id={{item2.type_id}}">
+                <view class='ico_a'>
+                  <image style='width:100%;height:100%' src='{{fileUrl}}/{{item2.type_pic}}' mode='widthFix'></image>
+                  <text>{{item2.type_name}}</text>
+                </view>
+              </navigator>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 轮播分类 end -->
+
+    <view class='list_box margin_both3'>
+      <!-- 商品循环 start -->
+      <view wx:for="{{goodsDatas}}" wx:key="key" class='index_list clearfix'>
+       <navigator url="../detailed?goods_id={{item.goods_id}}">
+        <view class='index_listleft'>
+          <image src='{{item.goods_pic}}'></image>
+        </view>
+        <view class='index_listright'>
+          <view class='text_30' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{item.goods_name}}</view>
+          <view class='star'>
+             <!-- 满星个数 -->
+              <image src='../../assets/images/star_03.png' wx:if="{{item.avg1_start>=1}}"></image>
+              <image src='../../assets/images/star_03.png' wx:if="{{item.avg1_start>=2}}"></image>
+              <image src='../../assets/images/star_03.png' wx:if="{{item.avg1_start>=3}}"></image>
+              <image src='../../assets/images/star_03.png' wx:if="{{item.avg1_start>=4}}"></image>
+              <image src='../../assets/images/star_03.png' wx:if="{{item.avg1_start>=5}}"></image>
+              <!-- 是否显示半星 -->
+              <image src='../../assets/images/half.png' wx:if="{{item.avg1_start !=1 && item.avg1_start !=2 && item.avg1_start !=3 && item.avg1_start !=4 && item.avg1_start !=5 }}"></image>
+              <!-- 空星个数 -->
+              <image src='../../assets/images/star_04.png' wx:if="{{item.avg1_start<=4}}"></image>
+              <image src='../../assets/images/star_04.png' wx:if="{{item.avg1_start<=3}}"></image>
+              <image src='../../assets/images/star_04.png' wx:if="{{item.avg1_start<=2}}"></image>
+              <image src='../../assets/images/star_04.png' wx:if="{{item.avg1_start<=1}}"></image>
+              <image src='../../assets/images/star_04.png' wx:if="{{item.avg1_start<=0}}"></image>
+          </view>
+          <view>
+            <text class='text_38 text_red'>￥{{item.goods_price}}</text>
+            <text class='btn01 margin_both4' wx:if="{{item.price_type==0}}">一口价</text>
+              <text class='btn01 margin_both4' wx:if="{{item.price_type==1}}">定金</text>
+          </view>
+          <view class='color_888'>已售 {{item.goods_seller_count}}</view>
+        </view>
+        </navigator>
+      </view>
+      <!-- 商品循环 end -->
+    </view>
+
+
+  </view>
+</view>

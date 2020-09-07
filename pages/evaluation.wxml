@@ -1,0 +1,85 @@
+<view class="body">
+   <view class="main">
+
+       <view class='list'>
+           <view class='clearfix margin_both'>
+               <view class='float-left margin_right'>服务态度</view> 
+               <view class='star float-left'>
+                  <view class="stars {{service_grade>=1? 'on': ''}}" data-service_grade="1" bindtap="changeColor1"></view>
+                  <view class="stars {{service_grade>=2? 'on': ''}}" data-service_grade="2" bindtap="changeColor1"></view> 
+                  <view class="stars {{service_grade>=3? 'on': ''}}" data-service_grade="3" bindtap="changeColor1"></view> 
+                  <view class="stars {{service_grade>=4? 'on': ''}}" data-service_grade="4" bindtap="changeColor1"></view> 
+                  <view class="stars {{service_grade>=5? 'on': ''}}" data-service_grade="5" bindtap="changeColor1"></view> 
+              </view>
+           </view>
+            <view class='clearfix margin_both'>
+               <view class='float-left margin_right'>作业效果</view> 
+               <view class='star float-left'>
+                  <view class="stars {{task_grade>=1? 'on': ''}}" data-task_grade="1" bindtap="changeColor2"></view>
+                  <view class="stars {{task_grade>=2? 'on': ''}}" data-task_grade="2" bindtap="changeColor2"></view> 
+                  <view class="stars {{task_grade>=3? 'on': ''}}" data-task_grade="3" bindtap="changeColor2"></view> 
+                  <view class="stars {{task_grade>=4? 'on': ''}}" data-task_grade="4" bindtap="changeColor2"></view> 
+                  <view class="stars {{task_grade>=5? 'on': ''}}" data-task_grade="5" bindtap="changeColor2"></view> 
+              </view>
+           </view>
+            <view class='clearfix margin_both'>
+               <view class='float-left margin_right'>及时维修</view> 
+               <view class='star float-left'>
+                  <view class="stars {{timely_grade>=1? 'on': ''}}" data-timely_grade="1" bindtap="changeColor3"></view>
+                  <view class="stars {{timely_grade>=2? 'on': ''}}" data-timely_grade="2" bindtap="changeColor3"></view> 
+                  <view class="stars {{timely_grade>=3? 'on': ''}}" data-timely_grade="3" bindtap="changeColor3"></view> 
+                  <view class="stars {{timely_grade>=4? 'on': ''}}" data-timely_grade="4" bindtap="changeColor3"></view> 
+                  <view class="stars {{timely_grade>=5? 'on': ''}}" data-timely_grade="5" bindtap="changeColor3"></view> 
+              </view>
+           </view>
+           <view class='clearfix margin_both'>
+               <view class='float-left margin_right'>形象得体</view> 
+               <view class='star float-left'>
+                  <view class="stars {{dress_grade>=1? 'on': ''}}" data-dress_grade="1" bindtap="changeColor4"></view>
+                  <view class="stars {{dress_grade>=2? 'on': ''}}" data-dress_grade="2" bindtap="changeColor4"></view> 
+                  <view class="stars {{dress_grade>=3? 'on': ''}}" data-dress_grade="3" bindtap="changeColor4"></view> 
+                  <view class="stars {{dress_grade>=4? 'on': ''}}" data-dress_grade="4" bindtap="changeColor4"></view> 
+                  <view class="stars {{dress_grade>=5? 'on': ''}}" data-dress_grade="5" bindtap="changeColor4"></view> 
+              </view>
+           </view>
+
+          
+
+
+          
+           
+       </view>
+
+       <view class='list_box margin_both3'>
+            <view class='list ritextarea'>
+                <textarea bindinput='goodsEvaluationInputBindinput' placeholder='说点什么吧...' auto-focus maxlength='-1'></textarea>
+            </view>
+
+            <view class='list ritextarea' bindtap="bindSelectAll">
+                 <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20" class="l-mycheck"/>
+                    <icon wx:else type="circle" size="20" class="l-mycheck"/>
+                 <div style='position:absolute;'>匿名评论</div>
+            </view>
+
+
+            <view class='list'>
+                <view>图片 <text class='btn01 float-right' bindtap='imageOnClickEvent'>添加</text></view>
+                <view class="clearfix">
+
+                   <block wx:if="{{selectLocalImages.length > 0}}">
+                    <block  wx:for="{{selectLocalImages}}" wx:key="*this" wx:for-item="item">
+                    <view class='phototwo '>
+                    <view  class='close' data-index="{{index}}"  bindtap='imageDeleteOnClickEvent'><image  src='images/indexg_16.png' mode='widthFix'></image></view><image bindtap='previewImageBindtap' style='width:200rpx;height:150rpx;margin:20rpx 10rpx;' data-index='{{index}}' src="{{item}}"></image>
+                    </view>
+
+
+                    </block>
+                  </block>
+
+
+                </view>
+            </view>
+       </view>
+      <view class='btn05' bindtap='saveEvaluationClickEvent'>确认评价</view>
+   </view>
+</view>

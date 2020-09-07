@@ -1,0 +1,38 @@
+<view class="body">
+  <view class="main">
+    <!-- 商品循环 start -->
+      <view wx:for="{{goodsDatas}}" wx:key="key" class='index_list clearfix'>
+       <navigator url="detailed?goods_id={{item.goods_id}}">
+        <view class='index_listleft'>
+          <image src='{{item.goods_pic}}'></image>
+        </view>
+        <view class='index_listright'>
+          <view class='text_30' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'>{{item.goods_name}}</view>
+          <view class='star'>
+          <!-- 满星个数 -->
+              <image src='images/star_03.png' wx:if="{{item.avg1_start>=1}}"></image>
+              <image src='images/star_03.png' wx:if="{{item.avg1_start>=2}}"></image>
+              <image src='images/star_03.png' wx:if="{{item.avg1_start>=3}}"></image>
+              <image src='images/star_03.png' wx:if="{{item.avg1_start>=4}}"></image>
+              <image src='images/star_03.png' wx:if="{{item.avg1_start>=5}}"></image>
+              <!-- 是否显示半星 -->
+              <image src='images/half.png' wx:if="{{item.avg1_start !=1 && item.avg1_start !=2 && item.avg1_start !=3 && item.avg1_start !=4 && item.avg1_start !=5 }}"></image>
+              <!-- 空星个数 -->
+              <image src='images/star_04.png' wx:if="{{item.avg1_start<=4}}"></image>
+              <image src='images/star_04.png' wx:if="{{item.avg1_start<=3}}"></image>
+              <image src='images/star_04.png' wx:if="{{item.avg1_start<=2}}"></image>
+              <image src='images/star_04.png' wx:if="{{item.avg1_start<=1}}"></image>
+              <image src='images/star_04.png' wx:if="{{item.avg1_start<=0}}"></image>
+          </view>
+          <view>
+            <text class='text_38 text_red'>￥{{item.goods_price}}</text>
+            <text class='btn01 margin_both4'>定金</text>
+          </view>
+          <view class='color_888'>已售 0</view>
+        </view>
+        </navigator>
+      </view>
+      <!-- 商品循环 end -->
+
+  </view>
+</view>

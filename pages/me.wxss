@@ -1,0 +1,57 @@
+
+
+.modal-box{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+  z-index: 99;
+  }
+
+.modal-body{
+  position:relative;
+  
+  }
+
+.modal-content{
+  /* width: 60%; */
+  overflow: hidden;
+  border-radius: 10rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 40% 0 0 10%;
+  }
+
+.modal-content{
+  width: 80%;
+  height:360rpx; 
+}
+.modal-content .fenxiang{
+  width: 100%;
+  height: 40%;
+}
+.butt{ position: absolute; bottom: 0; width: 80%;}
+.butt view{ width: 50%; float:left; display: inline-block; border-radius: 0px;  border-top: 1px solid #e2e2e2; border-left: 1px solid #e2e2e2;box-sizing: border-box; text-align: center;  background: #f7f7f7; border-radius: 0 0 10rpx 10rpx}
+.butt view.knowBtn{ background: #fff; }
+.butt view.knowBtn button{color: #0bb20c}
+.titl{font-size: 38rpx; text-align: center; border-bottom: 1px solid #e2e2e2; line-height: 80rpx; padding-top: 10rpx}
+button[plain] {
+color:#353535;
+border:none;
+background-color:transparent;
+
+}
+
+.tab01{position:absolute; background:#000; color:#FE9900; top:112rpx; left:0rpx;  line-height:40rpx; font-size:24rpx; width:100%; text-align:center; opacity:0.6;border-radius:0 0 10rpx 10rpx}
+.distance{position: absolute; top: 550rpx; font-size: 24rpx; color: #999; }
+.nav_list{ background: #fff; border: 1rpx solid #eaeaea; padding:30rpx 0;position:absolute; margin:190rpx 0 0 5%; width:90%; border-radius: 20rpx}
+.nav_list .nav_list_view{ width: 25%; text-align: center; float: left;}
+.nav_list .nav_list_view image{ width: 50rpx; margin-bottom: 10rpx}
+button::after {
+  border: 0;
+} 
+button{ color: #fff; font-size: 30rpx; border: 1rpx solid #fff; border-radius: 10rpx; padding: 5rpx 0; margin: 5rpx 0}
+
+.number2{ position: absolute; background: #ff5f81; color: #fff; border-radius: 30rpx; right:30%; top: -10rpx; width: 30rpx; height: 30rpx; font-size: 24rpx; line-height: 30rpx; text-align: center}

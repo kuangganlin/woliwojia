@@ -1,0 +1,33 @@
+<!--Choose-address.wxml-->
+<view class="body">
+   <view class="main">
+      
+ <view class="clearfix search">
+      <view class="magnifier">
+         <image src="../images/map_03.png"></image> 
+      </view>
+      <input value=""  placeholder='查找小区/大厦等' class="input05" bindblur='searchBindblur' bindinput='searchBindinput' />
+      <view class="btn03" bindtap='searchBtnOnCLick'>搜索</view>
+    </view>
+
+
+   <map id="myMap" show-location longitude="{{map.longitude}}" hidden='{{map.hidden}}' latitude="{{map.latitude}}" scale="{{map.scale}}" show-location  bindregionchange='regionchange' style="width: 100%; height:40%;position:relative" >
+     <cover-image wx:if='{{map.hidden != true}}' src="../images/ic_position.png" style='position:absolute; top:40%; left:46%; width:60rpx; height:90rpx'></cover-image>
+     <cover-view wx:if='{{map.hidden != true}}' class="cover_three" bindtap='locationOnClick'> <cover-image src="../images/map_03n.png"></cover-image></cover-view> 
+  </map> 
+
+    <scroll-view scroll-y='ture' style="height:{{scrollViewHeight}};">
+       <block wx:for="{{poiListData}}">
+     <view  wx:if="{{item.location != null}}"  wx:key="id" bindtap='selectAddrEvent' data-addr='{{item}}' class="list_03">
+    
+           <view class="text_30 color_333">{{item.name}}</view>
+           <view  class="color_888 text_26">{{item.address == null ? (item.city+item.district+item.name): item.address}}</view> 
+          
+      </view>
+       </block> 
+    </scroll-view>
+     
+
+	</view>
+
+</view>

@@ -1,0 +1,17 @@
+<view class="body">
+  <view class="main">
+    <view wx:for="{{goodsCommenList}}" class='clearfix border_bottom'>
+      <view class='float-left avatar3'>
+        <image wx:if="{{item.anonymous == 0}}" src='{{item.userInfo.head_pic}}' ></image>
+        <image wx:else src='https://www.irmhome.com/images/user_head.jpg' ></image>
+      </view>
+      <view class='name3'>
+        <view wx:if="{{item.anonymous == 0}}">{{item.userInfo.nickname}} </view>
+        <view wx:else>匿名</view>
+        <view class='text_30 color_333 margin_both'>{{item.evt_desc}}</view>
+        <view class='color_888 text_24'>{{item.creat_time}}</view>
+      </view>
+    </view>
+
+  </view>
+</view>

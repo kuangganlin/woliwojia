@@ -1,0 +1,17 @@
+<view class="body">
+   <view class="main">
+
+<view class='list_box'>
+    <view class='list_arrow'>联系人姓名： <input></input></view>
+    <view class='list_arrow'>联系人电话： <input></input></view>
+</view>
+<view class='list_box margin_both3'>
+      <view class='list_arrow'>选择地址<image src='../../assets/images/arrow_04.png' mode='widthFix'></image></view>
+            <view class='list ritextarea'>
+                <textarea bindinput='goodsDescInputBindinput' placeholder='选择地址后将地址信息输入到该位置，用户可以修改' auto-focus maxlength='-1'></textarea>
+            </view>
+  </view>
+
+
+</view>
+</view>

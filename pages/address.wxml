@@ -1,0 +1,15 @@
+<view class="body" style='background:#fff'>
+   <view class="main">
+       <view class='input'>
+            <view class='select'>重庆 <image src='../../assets/images/indexg_05.png' mode='widthFix'></image></view><input value='搜索当前城市的地址'></input>
+       </view>
+       <view class='color_888 text_24 margin_left2 margin_top3'><image src='../../assets/images/weiz.png' mode='widthFix' style='width:30rpx;'></image> 定位城市</view>
+       <view class='text_28' style='margin:20rpx 40rpx 0 80rpx'>金科时代中心 <view class='float-right'><image src='../../assets/images/dd.png' mode='widthFix' style='width:40rpx;'></image> 重新定位</view></view>
+        <view class='color_888 text_24 margin_left2 margin_top3'><image src='../../assets/images/ding.png' mode='widthFix' style='width:30rpx;'></image> 附件地址</view>
+         <view class='text_28 bottom_border' style='margin:0 40rpx 0 80rpx;padding:20rpx 0'>金科时代中心</view>
+         <view class='text_28 bottom_border' style='margin:0 40rpx 0 80rpx;padding:20rpx 0'>金科时代中心</view>
+         <view class='text_28 bottom_border' style='margin:0 40rpx 0 80rpx;padding:20rpx 0'>金科时代中心</view>
+         <view class='text_28 bottom_border' style='margin:0 40rpx 0 80rpx;padding:20rpx 0'>金科时代中心</view>
+         <view class='text_28 bottom_border' style='margin:0 40rpx 0 80rpx;padding:20rpx 0'>金科时代中心</view>
+</view>
+</view>
